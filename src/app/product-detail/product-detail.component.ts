@@ -15,7 +15,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
   	//参数拍照
-  	this.productTitle = this.routeInfo.snapshot.params["productTitle"]
+  	this.productTitle = this.routeInfo.snapshot.params["prodTitle"]
   }
 
 }
