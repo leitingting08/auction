@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import {Product,ProductService,Comment} from "../share/product.service";
 
 
@@ -19,7 +19,7 @@ export class ProductDetailComponent implements OnInit {
   	) { }
 
   ngOnInit() {
-  	//参数快照
+  	//参数快照获得商品Id
   	let productId:number = this.routeInfo.snapshot.params["productId"];
 
   	this.product = this.productService.getProduct(productId);
