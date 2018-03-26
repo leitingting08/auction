@@ -10,9 +10,9 @@ import {Product,ProductService,Comment} from "../share/product.service";
 })
 export class ProductDetailComponent implements OnInit {
 
-  product:Product;
+  private product:Product;
 
-  comments:Comment[];
+  private comments:Comment[];
 
   constructor(private routeInfo: ActivatedRoute,
   			      private productService: ProductService
@@ -24,6 +24,8 @@ export class ProductDetailComponent implements OnInit {
 
   	this.product = this.productService.getProduct(productId);
     this.comments = this.productService.getCommentsForProductId(productId);
+    // console.log(this.product)
+    console.log(this.comments)
 
   }
 
