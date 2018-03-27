@@ -13,6 +13,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { HomeComponent } from './home/home.component';
 import {Routes, RouterModule} from "@angular/router";
 import {ProductService} from "./share/product.service";
+import { MultiplePipe } from './pipe/multiple.pipe';
+import { PipeDemoComponent } from './pipe-demo/pipe-demo/pipe-demo.component';
 
 
 const routeConfig: Routes = [
@@ -30,7 +32,9 @@ const routeConfig: Routes = [
     ProductComponent,
     StarsComponent,
     ProductDetailComponent,
-    HomeComponent
+    HomeComponent,
+    MultiplePipe,
+    PipeDemoComponent
   ],
   imports: [
     BrowserModule,
