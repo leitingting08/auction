@@ -21,6 +21,9 @@ export class ProductService {
          new Comment(4,2,"2018-04-02 23:22:22","张三",4,"东西非常不错")
    ]
 
+   getAllCategories():string[]{
+     return ["电子产品","硬件设备","图书"];
+   }
   getProducts(): Product[] {
       return this.products;
   }
