@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -15,11 +16,13 @@ import {Routes, RouterModule} from "@angular/router";
 import {ProductService} from "./share/product.service";
 import { MultiplePipe } from './pipe/multiple.pipe';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo/pipe-demo.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 
 const routeConfig: Routes = [
   {path:'', component:HomeComponent},
-  {path:'product/:productId', component:ProductDetailComponent}
+  {path:'product/:productId', component:ProductDetailComponent},
+  {path:'pipe', component:PipeDemoComponent}
 ]
 
 @NgModule({
@@ -34,11 +37,14 @@ const routeConfig: Routes = [
     ProductDetailComponent,
     HomeComponent,
     MultiplePipe,
-    PipeDemoComponent
+    PipeDemoComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routeConfig)
+    FormsModule,
+    RouterModule.forRoot(routeConfig),
+    ReactiveFormsModule
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
