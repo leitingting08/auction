@@ -44,23 +44,23 @@ export class SearchComponent implements OnInit {
           console.log(this.formModel.value);
       }
   }
+//这是全选反选个别选择的例子
+// private departs = [
+//     {name:'全选'},
+//     {name:'张三'},
+//     {name:'李四'},
+//     {name:'王五'}
+//   ]
 
-private departs = [
-    {name:'全选'},
-    {name:'张三'},
-    {name:'李四'},
-    {name:'王五'}
-  ]
+//  //全选
+//   checked(m){
+//       this.checkAll(m,m.checked[0]);
+// 　 }
 
- //全选
-  checked(m){
-      this.checkAll(m,m.checked[0]);
-　 }
-
-  checkAll(dir,boolean){
-     dir.checked=[];
-     dir.forEach(i=>{
-     	dir.checked.push(boolean);
-     })
-  }
+//   checkAll(dir,boolean){
+//      dir.checked=[];
+//      dir.forEach(i=>{
+//      	dir.checked.push(boolean);
+//      })
+//   }
 }

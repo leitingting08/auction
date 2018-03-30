@@ -17,6 +17,7 @@ import {ProductService} from "./share/product.service";
 import { MultiplePipe } from './pipe/multiple.pipe';
 import { PipeDemoComponent } from './pipe-demo/pipe-demo/pipe-demo.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { TableTreeComponent } from './share/table-tree/table-tree.component';
 
 
 const routeConfig: Routes = [
@@ -38,7 +39,8 @@ const routeConfig: Routes = [
     HomeComponent,
     MultiplePipe,
     PipeDemoComponent,
-    FilterPipe
+    FilterPipe,
+    TableTreeComponent
   ],
   imports: [
     BrowserModule,
