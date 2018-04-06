@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import {Product,ProductService} from "../share/product.service";
+import { Http } from '@angular/http';
+import { Product,ProductService } from "../share/product.service";
+import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 
 @Component({
@@ -9,18 +11,20 @@ import 'rxjs/Rx';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit {
-	private products:Product[];
+	private products:Observable<Product[]>;
 
-	private keyword:string;
+	//private keyword:string;
 
 	private titleFilter:FormControl = new FormControl();
 
     private imgUrl = 'http://placehold.it/260x150';
 
-  constructor(private productService:ProductService) { 
-     this.titleFilter.valueChanges
-     .debounceTime(500)
-     .subscribe(value=>{this.keyword = value})
+  constructor(private productService:ProductService, private http:Http) {
+     // this.titleFilter.valueChanges
+     // .debounceTime(500)
+     // .subscribe(value=>{this.keyword = value})
+     //let myHeaders:Headers = new Headers();
+     //myHeaders.append("Authorization","Basic 123456");//请求头里加参数？
   }
 
   ngOnInit() {

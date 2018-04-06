@@ -28,8 +28,8 @@ export class ProductDetailComponent implements OnInit {
   	//参数快照获得商品Id
   	let productId:number = this.routeInfo.snapshot.params["productId"];
 
-  	this.product = this.productService.getProduct(productId);
-    this.comments = this.productService.getCommentsForProductId(productId);
+  	this.productService.getProduct(productId).subscribe(product => this.product = product);
+    this.productService.getCommentsForProductId(productId).subscribe(comments=>this.comments = comments);
     // console.log(this.product)
     console.log(this.comments)
 
