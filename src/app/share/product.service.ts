@@ -25,6 +25,32 @@ export class ProductService {
       return this.http.get("/api/product"+id+"comments").map(res=>res.json());
   }
 
+  search(params: ProductSearchParams):Observable<Product[]>{
+    return this.http.get("/api/products",{search:this.encodeParams}).map(res => res.json())
+  }
+
+  private encodeParams(params: ProductSearchParams){
+    let result:URLSearchParams;
+
+    result = Object.keys(params)
+    .filter(key => params[key])
+    .reduce((sum:URLSearchParams,key:string) =>{
+      sum.append(key, params[key]);
+      return sum;
+    },new URLSearchParams());
+  }
+
+}
+
+
+
+
+export class ProductSearchParams{
+  constructor(
+    public title:string,
+    public price:number,
+    public category:string
+    ){}
 }
 
 export class Product{
