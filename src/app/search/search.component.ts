@@ -42,6 +42,7 @@ export class SearchComponent implements OnInit {
   onSearch(){
       if(this.formModel.valid){
           console.log(this.formModel.value);
+          this.productService.searchEvent.emit(this.formModel.value);
       }
   }
 //这是全选反选个别选择的例子

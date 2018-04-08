@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable,EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
@@ -8,7 +8,7 @@ export class ProductService {
 
   constructor(private http:Http) { }
 
-
+  searchEvent:EventEmitter<ProductSearchParams> = new EventEmitter;
 
   getAllCategories():string[]{
      return ["电子产品","硬件设备","图书"];
