@@ -32,6 +32,7 @@ export class ProductComponent implements OnInit {
     this.productService.searchEvent.subscribe(
       params => this.products = this.productService.search(params)
       );
+    //console.log(this.products)
   }
 
 }
