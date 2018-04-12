@@ -31,7 +31,7 @@ export class ProductDetailComponent implements OnInit {
   	this.productService.getProduct(productId).subscribe(product => this.product = product);
     this.productService.getCommentsForProductId(productId).subscribe(comments=>this.comments = comments);
     // console.log(this.product)
-    console.log(this.comments)
+    //console.log(this.comments)
 
   }
 

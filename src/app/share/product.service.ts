@@ -17,12 +17,12 @@ export class ProductService {
       return this.http.get("/api/products").map(res=>res.json());
   }
 
-  getProduct(id:number):Observable<Product> {
-      return this.http.get("/api/product"+id).map(res=>res.json());
+  getProduct(id):Observable<Product> {
+      return this.http.get("/api/product/"+id).map(res=>res.json());
   }
 
-  getCommentsForProductId(id:number) : Observable<Comment[]>{
-      return this.http.get("/api/product"+id+"comments").map(res=>res.json());
+  getCommentsForProductId(id) : Observable<Comment[]>{
+      return this.http.get("/api/product/"+id+"/comments").map(res=>res.json());
   }
 
   search(params: ProductSearchParams):Observable<Product[]>{
