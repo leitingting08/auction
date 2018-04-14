@@ -13,6 +13,13 @@
     </div>
 </div>
 
+<div class="thumbnail">
+	<button class="btn btn-default btn-lg" [class.active]="isWatch" (click)="watchProduct()">
+		{{isWatch?'取消关注':'关注'}}
+	</button>
+	<label>最新出价：{{currenntBid}}</label>
+</div>
+
 <div class="well">
 	<div>
 		<button class="btn btn-success" (click)="isCommentHide=!isCommentHide">发表评论</button>
