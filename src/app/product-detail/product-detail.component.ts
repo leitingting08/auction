@@ -24,6 +24,8 @@ export class ProductDetailComponent implements OnInit {
 
   private currenntBid:number;
 
+  private subscription : Subscription;
+
   constructor(private routeInfo: ActivatedRoute,
   			      private productService: ProductService,
               private wsService: WebSocketService
@@ -56,14 +58,21 @@ export class ProductDetailComponent implements OnInit {
     this.isCommentHide = true;
   }
   watchProduct(){
-    this.isWatch = !this.isWatch;
-
-    this.wsService.createObservableSocket('ws://localhost:8085', this.product.id)
+    if(this.subscription){
+      this.subscription.unsubscribe();
+      this.isWatch = !this.isWatch;
+      this.subscription = null;
+    }else{
+      this.isWatch = true;
+      this.subscription = this.wsService.createObservableSocket('ws://localhost:8085', this.product.id)
     .subscribe(
-        data => console.log(data),
-        err => console.log(err),
-        () => console.log("流程已结束")
+        products => {
+          let product = products.find(p => p.productId === this.product.id);
+          this.currenntBid = product.bid;
+        }
       );
+    }
+    
   }
 
 }
