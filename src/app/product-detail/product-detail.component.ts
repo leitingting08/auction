@@ -59,7 +59,11 @@ export class ProductDetailComponent implements OnInit {
     this.isWatch = !this.isWatch;
 
     this.wsService.createObservableSocket('ws://localhost:8085', this.product.id)
-    .subscribe();
+    .subscribe(
+        data => console.log(data),
+        err => console.log(err),
+        () => console.log("流程已结束")
+      );
   }
 
 }
