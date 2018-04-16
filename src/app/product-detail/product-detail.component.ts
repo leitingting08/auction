@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { Product,ProductService,Comment } from "../share/product.service";
 import { WebSocketService } from "../share/websocket.service";
+import { Subscription } from "rxjs";
 
 @Component({
   selector: 'app-product-detail',
@@ -35,10 +36,10 @@ export class ProductDetailComponent implements OnInit {
   	//参数快照获得商品Id
   	let productId:number = this.routeInfo.snapshot.params["productId"];
 
-  	this.productService.getProduct(productId).subscribe(product => 
+  	this.productService.getProduct(productId).subscribe(product =>
       {
         this.product = product
-        this.currenntBid = product.price;
+        this.currenntBid = this.product.price;
       });
     this.productService.getCommentsForProductId(productId).subscribe(comments=>this.comments = comments);
     // console.log(this.product)
@@ -60,7 +61,7 @@ export class ProductDetailComponent implements OnInit {
   watchProduct(){
     if(this.subscription){
       this.subscription.unsubscribe();
-      this.isWatch = !this.isWatch;
+      this.isWatch = false;
       this.subscription = null;
     }else{
       this.isWatch = true;
@@ -72,7 +73,7 @@ export class ProductDetailComponent implements OnInit {
         }
       );
     }
-    
+
   }
 
 }
