@@ -39,7 +39,7 @@ export class ProductDetailComponent implements OnInit {
   	this.productService.getProduct(productId).subscribe(product =>
       {
         this.product = product
-        this.currenntBid = this.product.price;
+        this.currenntBid = product.price;
       });
     this.productService.getCommentsForProductId(productId).subscribe(comments=>this.comments = comments);
     // console.log(this.product)
