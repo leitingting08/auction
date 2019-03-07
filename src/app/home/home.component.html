@@ -4,3 +4,10 @@
 <div class="row">
 	<app-product class="row"></app-product>
 </div>	
+
+<!-- <label><input type="checkbox" [(ngModel)]="master">全选</label>  -->
+<table>
+      <tr *ngFor="let dep of departs;let i = index">
+          <td><label><input type="checkbox" [(ngModel)]="dep.checked" (change)="checkEvent(dep,i)">{{dep.name}}</label></td>
+      </tr>
+</table>
