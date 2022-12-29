@@ -24,7 +24,7 @@
     "@types/ws": "^4.0.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.4.1",
-    "css-loader": "^3.0.0",
+    "css-loader": "^6.7.3",
     "jquery": "^3.5.0",
     "rxjs": "^5.5.6",
     "ws": "^5.1.1",
@@ -50,7 +50,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "node-sass": "^4.13.1",
     "protractor": "^6.0.0",
-    "sass-loader": "^6.0.6",
+    "sass-loader": "^13.2.0",
     "ts-node": "~3.2.0",
     "tslint": "~5.9.1",
     "typescript": "~2.5.3"
